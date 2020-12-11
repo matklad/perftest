@@ -1,0 +1,20 @@
+name: CI
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  rust:
+    name: Rust
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: cargo build
+
+    - name: Run
+      run: cargo run
