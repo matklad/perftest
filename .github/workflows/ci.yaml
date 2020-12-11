@@ -11,5 +11,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: perf stat ls || true
     - run: cargo build
-    - run: sudo ./target/debug/perftest
+    - run: sudo ./target/debug/perftest || true
