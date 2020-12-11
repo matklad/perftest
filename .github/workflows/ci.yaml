@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: cat /proc/sys/kernel/perf_event_paranoid
+    - run: sudo sh -c 'echo 1 >/proc/sys/kernel/perf_event_paranoid'
     - run: perf stat ls || true
     - run: cargo build
     - run: sudo ./target/debug/perftest || true
